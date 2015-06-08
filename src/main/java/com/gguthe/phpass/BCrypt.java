@@ -1,4 +1,4 @@
-package com.github.gguthe.phpass;
+package com.gguthe.phpass;
 
 //Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //

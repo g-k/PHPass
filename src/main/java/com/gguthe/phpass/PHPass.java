@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.gguthe.phpass;
+package com.gguthe.phpass;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

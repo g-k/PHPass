@@ -1,15 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.gguthe.phpass</groupId>
+  <groupId>com.gguthe.phpass</groupId>
   <artifactId>phpass</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>phpass</name>
   <url>http://maven.apache.org</url>
-  <properties>
-      <github.global.server>github</github.global.server>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -18,38 +16,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <distributionManagement>
-      <repository>
-          <id>internal.repo</id>
-          <name>Temporary Staging Repository</name>
-          <url>file://${project.build.directory}/mvn-repo</url>
-      </repository>
-  </distributionManagement>
-  <build>
-      <plugins>
-          <plugin>
-              <groupId>com.github.github</groupId>
-              <artifactId>site-maven-plugin</artifactId>
-              <version>0.8</version>
-              <configuration>
-                  <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
-                  <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
-                  <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-                  <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
-                  <includes><include>**/*</include></includes>
-                  <repositoryName>PHPass</repositoryName>      <!-- github repo name -->
-                  <repositoryOwner>g-k</repositoryOwner>    <!-- github username  -->
-              </configuration>
-              <executions>
-                <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
-                <execution>
-                  <goals>
-                    <goal>site</goal>
-                  </goals>
-                  <phase>deploy</phase>
-                </execution>
-              </executions>
-          </plugin>
-      </plugins>
-  </build>
 </project>
