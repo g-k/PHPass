@@ -4,3 +4,4 @@ jdk:
   - oraclejdk7
   - openjdk7
   - openjdk6
+before_install: cd phpass
