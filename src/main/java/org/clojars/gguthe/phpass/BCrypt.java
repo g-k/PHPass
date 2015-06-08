@@ -1,4 +1,4 @@
-package com.gguthe.phpass;
+package org.clojars.gguthe.phpass;
 
 //Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //

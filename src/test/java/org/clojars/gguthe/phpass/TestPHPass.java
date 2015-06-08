@@ -1,4 +1,4 @@
-package com.gguthe.phpass;
+package org.clojars.gguthe.phpass;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
