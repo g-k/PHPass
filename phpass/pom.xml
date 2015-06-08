@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.ukasiu.phpass</groupId>
+  <groupId>com.github.gguthe.phpass</groupId>
   <artifactId>phpass</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
@@ -38,7 +38,7 @@
                   <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
                   <includes><include>**/*</include></includes>
                   <repositoryName>PHPass</repositoryName>      <!-- github repo name -->
-                  <repositoryOwner>ukasiu</repositoryOwner>    <!-- github username  -->
+                  <repositoryOwner>g-k</repositoryOwner>    <!-- github username  -->
               </configuration>
               <executions>
                 <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->

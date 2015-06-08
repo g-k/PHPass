@@ -1,4 +1,4 @@
-package com.github.ukasiu.phpass;
+package com.github.gguthe.phpass;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -19,37 +19,37 @@ public class TestPHPass extends TestCase {
         junit.textui.TestRunner.run(TestPHPass.class);
     }
 
-    
+
     public final void testCheckPassword_correct() {
         boolean check = phpass.CheckPassword(correct, this.hashed);
         Assert.assertTrue(check);
     }
 
-    
+
     public final void testCheckPassword_wrong() {
         boolean check = phpass.CheckPassword(wrong, this.hashed);
         Assert.assertFalse(check);
     }
 
-    
+
     public final void testCheckPassword_givenhash_correct() {
         boolean check = phpass.CheckPassword(correct, hash);
         Assert.assertTrue(check);
     }
 
-    
+
     public final void testCheckPassword_givenhash_wrong() {
         boolean check = phpass.CheckPassword(wrong, hash);
         Assert.assertFalse(check);
     }
 
-    
+
     public final void testCheckPassword_nationalCharacters_correct() {
         boolean check = phpass.CheckPassword(correctpl, hashpl);
         assertTrue(check);
     }
 
-    
+
     public final void testCheckPassword_nationalCharacters_wrong() {
         boolean check = phpass.CheckPassword(wrongpl, hashpl);
         assertFalse(check);
