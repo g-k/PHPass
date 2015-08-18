@@ -1,4 +1,4 @@
-(defproject org.clojars.gguthe/phpass "1.0.2-SNAPSHOT"
+(defproject org.clojars.gguthe/phpass "1.0.2"
   :description "Fork of PHPass"
   :url "https://github.com/RJMetrics/PHPass.git"
   :license {:name "Eclipse Public License"
