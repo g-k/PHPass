@@ -4,3 +4,7 @@ jdk:
   - oraclejdk7
   - openjdk7
   - openjdk6
+install:
+  - lein install
+script:
+  - mvn -f test-pom.xml test
