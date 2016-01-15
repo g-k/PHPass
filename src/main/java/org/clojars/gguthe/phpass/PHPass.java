@@ -30,7 +30,7 @@ import org.clojars.gguthe.phpass.BCrypt;
 
 public class PHPass {
     private static String itoa64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    private static int BCRYPT_WORKFACTOR = 12;
+    private int BCRYPT_WORKFACTOR;
     private int iterationCountLog2;
     private SecureRandom randomGen;
 
@@ -38,8 +38,10 @@ public class PHPass {
     public PHPass(int iterationCountLog2) {
         if (iterationCountLog2 < 4 || iterationCountLog2 > 31) {
             iterationCountLog2 = 8;
+            BCRYPT_WORKFACTOR = 12;
         }
         this.iterationCountLog2 = iterationCountLog2;
+        this.BCRYPT_WORKFACTOR = iterationCountLog2
         this.randomGen = new SecureRandom();
     }
 
