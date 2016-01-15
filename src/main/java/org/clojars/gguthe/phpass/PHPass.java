@@ -41,7 +41,7 @@ public class PHPass {
             BCRYPT_WORKFACTOR = 12;
         }
         this.iterationCountLog2 = iterationCountLog2;
-        this.BCRYPT_WORKFACTOR = iterationCountLog2
+        this.BCRYPT_WORKFACTOR = iterationCountLog2;
         this.randomGen = new SecureRandom();
     }
 
