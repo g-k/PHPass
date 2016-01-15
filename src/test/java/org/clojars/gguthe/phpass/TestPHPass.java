@@ -14,7 +14,7 @@ public class TestPHPass extends TestCase {
     static final String correctpl = "ąćęłóńśźż";
     static final String wrongpl = "acelonszz";
     static final String hashplMD5 = "$P$ByXWbzDvVAJ0jxvNp5sv4xYPIRXJJ1.";
-    static final String hashBCrypt = "$2a$10$uVWyXfgJlCTXy837ZrXR1.UA2f1YbJsN19ykdDoqnfyzq26IYW9eS";
+    static final String hashplBCrypt = "$2a$10$uVWyXfgJlCTXy837ZrXR1.UA2f1YbJsN19ykdDoqnfyzq26IYW9eS";
     static final PHPass phpass = new PHPass(12);
     String hashed = phpass.HashPassword(correct);
 
