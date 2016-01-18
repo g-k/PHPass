@@ -27,7 +27,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 //import org.clojars.gguthe.phpass.BCrypt;
-import org.mindrot.jbcrypt.BCrypt;
+import org.mindrot.BCrypt;
 
 public class PHPass {
     private static String itoa64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
