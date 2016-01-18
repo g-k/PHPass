@@ -26,17 +26,23 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
+//import org.clojars.gguthe.phpass.BCrypt;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class PHPass {
     private static String itoa64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private int BCRYPT_WORKFACTOR;
     private int iterationCountLog2;
     private SecureRandom randomGen;
 
+   
     public PHPass(int iterationCountLog2) {
         if (iterationCountLog2 < 4 || iterationCountLog2 > 31) {
             iterationCountLog2 = 8;
+            BCRYPT_WORKFACTOR = 12;
         }
         this.iterationCountLog2 = iterationCountLog2;
+        this.BCRYPT_WORKFACTOR = iterationCountLog2;
         this.randomGen = new SecureRandom();
     }
 
@@ -80,10 +86,12 @@ public class PHPass {
         if (((setting.length() < 2) ? setting : setting.substring(0, 2)).equalsIgnoreCase(output)) {
             output = "*1";
         }
+
         String id = (setting.length() < 3) ? setting : setting.substring(0, 3);
         if (!(id.equals("$P$") || id.equals("$H$"))) {
             return output;
         }
+
         int countLog2 = itoa64.indexOf(setting.charAt(3));
         if (countLog2 < 7 || countLog2 > 30) {
             return output;
@@ -129,10 +137,23 @@ public class PHPass {
     }
 
     public String HashPassword(String password) {
+        // Use BCrypt to hash passwords
+        String hash = BCrypt.hashpw(password, BCrypt.gensalt(BCRYPT_WORKFACTOR, randomGen));
+
+        if (hash.length() == 60) {
+            return hash;
+        }
+        return "*";
+    }
+
+    public String HashMD5Password(String password) {
+        //MD5 is not a secure way to store passwords and we should not use this moving forward
+        //This is for testing purposes only
         byte random[] = new byte[6];
         this.randomGen.nextBytes(random);
-        // Unportable hashes (Blowfish, EXT_DES) could be added here, but I won't do this.
+
         String hash = cryptPrivate(password, gensaltPrivate(stringToUtf8(new String(random))));
+        
         if (hash.length() == 34) {
             return hash;
         }
