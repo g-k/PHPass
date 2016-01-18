@@ -86,11 +86,6 @@ public class PHPass {
             output = "*1";
         }
 
-        String id = (setting.length() < 3) ? setting : setting.substring(0, 4);
-        if (id.equals("$2a$")) {
-            return BCrypt.hashpw(password, setting);
-        }
-
         id = (setting.length() < 3) ? setting : setting.substring(0, 3);
         if (!(id.equals("$P$") || id.equals("$H$"))) {
             return output;
@@ -141,11 +136,9 @@ public class PHPass {
     }
 
     public String HashPassword(String password) {
-        byte random[] = new byte[6];
-        this.randomGen.nextBytes(random);
-
         // Use BCrypt to hash passwords
-        String hash = cryptPrivate(password, BCrypt.gensalt(BCRYPT_WORKFACTOR, randomGen));
+        String hash = BCrypt.hashpw(password, BCrypt.gensalt(BCRYPT_WORKFACTOR, randomGen));
+
         if (hash.length() == 60) {
             return hash;
         }
@@ -165,7 +158,7 @@ public class PHPass {
         }
         return "*";
     }
-    
+
     public boolean CheckPassword(String password, String storedHash) {
         String hash = cryptPrivate(password, storedHash);
         MessageDigest md = null;
