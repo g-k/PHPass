@@ -26,7 +26,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
-import org.clojars.gguthe.phpass.BCrypt;
+//import org.clojars.gguthe.phpass.BCrypt;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class PHPass {
     private static String itoa64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -86,7 +87,7 @@ public class PHPass {
             output = "*1";
         }
 
-        id = (setting.length() < 3) ? setting : setting.substring(0, 3);
+        String id = (setting.length() < 3) ? setting : setting.substring(0, 3);
         if (!(id.equals("$P$") || id.equals("$H$"))) {
             return output;
         }
