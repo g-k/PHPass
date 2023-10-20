@@ -1,7 +1,7 @@
 {
   "templateVersion": "0.2",
   "product": {
-    "name": "PHPass",
+    "name": "MBI",
     "description": "Java PHPass hash implementation"
   },
   "contacts": {
